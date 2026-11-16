@@ -13,11 +13,8 @@ import {
   TrendingDown, BarChart3, Award, Layers, X, Activity
 } from 'lucide-react';
 const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname) || window.location.hostname.startsWith('192.168.');
-const SOCKET_URL = import.meta.env.VITE_SERVER_URL || (isLocal ? `http://${window.location.hostname}:3001` : 'https://apexbet-t7o2.onrender.com');
-const socket = io(SOCKET_URL, {
-  transports: ['websocket', 'polling'],
-  reconnection: true
-});
+const SOCKET_URL = isLocal ? `http://${window.location.hostname}:3001` : 'https://apexbet-t7o2.onrender.com';
+const socket = io(SOCKET_URL);
 const buildPragmaticDemoUrl = (symbol) =>
   `https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=${symbol}&websiteUrl=https%3A%2F%2Fdemogamesfree.pragmaticplay.net&jurisdiction=99&lobby_url=https%3A%2F%2Fwww.pragmaticplay.com%2Fbr%2F&lang=PT&cur=BRL`;
 
